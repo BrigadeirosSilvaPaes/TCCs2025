@@ -1,0 +1,281 @@
+-- ==================== LIMPAR DADOS EXISTENTES ====================
+DELETE FROM locais_seguros;
+
+-- ==================== PELOTAS ====================
+INSERT INTO locais_seguros (nome, descricao, endereco, categoria, telefone, horario_funcionamento, latitude, longitude, ativo) VALUES
+(
+    'Centro de Referência de Atendimento à Mulher (CRAM) - Pelotas',
+    'O serviço oferecido pela Secretaria Municipal de Assistência Social (SAS) promove o acolhimento e reestabilização dessas mulheres por meio do acompanhamento psicossocial e jurídico. Além de realizarem, se for preciso, encaminhamentos aos serviços do município que possibilitem que ela consiga, através da Secretaria de Habitação, participar de algum projeto de moradia.',
+    'Rua Dom Pedro II, 813 - Centro, Pelotas - RS, 96020-220',
+    'centro_apoio',
+    '(53) 99186-0475',
+    'Segunda a sexta-feira: 08:00 às 17:00',
+    -31.773333,
+    -52.342889,
+    TRUE
+),
+(
+    'Delegacia Especializada de Atendimento à Mulher (DEAM) - Pelotas',
+    'Registro de ocorrências de violência doméstica/familiar, solicitação de medidas protetivas de urgência e investigação.',
+    'Rua Barros de Cassal, 516 – Areal, Pelotas - RS',
+    'delegacia',
+    '(53) 3310-8181',
+    'Segunda a sexta-feira: 08:30 às 12:00 e 13:30 às 18:00',
+    -31.761194,
+    -52.324194,
+    TRUE
+),
+(
+    'Sala das Margaridas - Pelotas',
+    'Espaço especializado de acolhimento vinculado à Delegacia de Polícia de Pronto Atendimento (DPPA), atendimento humanizado, registro de ocorrência, petição de medidas protetivas, oitiva da vítima.',
+    'Rua Professor Doutor Araújo, 900 – Centro (junto à DPPA), Pelotas - RS',
+    'centro_apoio',
+    '(53) 3310-8600',
+    'Aberto 24 horas',
+    -31.761806,
+    -52.345833,
+    TRUE
+),
+(
+    'Central de Atendimento à Mulher - Ligue 180',
+    'Canal nacional para orientação, registro de denúncias, encaminhamentos. Atendimento em todo o território nacional.',
+    'Canal nacional - Disponível em todo o Brasil',
+    'centro_apoio',
+    '180',
+    '24 horas por dia, todos os dias da semana, inclusive feriados',
+    -31.771944,
+    -52.342500,
+    TRUE
+),
+(
+    'Hospital de Pronto Socorro - Pelotas',
+    'Atendimento médico de emergência 24h, incluindo casos de violência contra a mulher.',
+    'Rua Andrade Neves, 345 - Centro, Pelotas - RS',
+    'hospital',
+    '(53) 3228-4000',
+    '24 horas',
+    -31.763889,
+    -52.341667,
+    TRUE
+),
+(
+    'UPA 24h Zona Norte - Pelotas',
+    'Unidade de Pronto Atendimento 24 horas para emergências.',
+    'Rua Gonçalves Chaves, 789 - Fragata, Pelotas - RS',
+    'upa',
+    '(53) 3225-6789',
+    '24 horas',
+    -31.758333,
+    -52.335000,
+    TRUE
+),
+(
+    'Farmácia de Plantão 24h - Pelotas',
+    'Farmácia de plantão 24 horas para emergências.',
+    'Avenida Bento Gonçalves, 1234 - Centro, Pelotas - RS',
+    'farmacia',
+    '(53) 3222-3344',
+    '24 horas',
+    -31.765000,
+    -52.338889,
+    TRUE
+);
+
+-- ==================== RIO GRANDE ====================
+INSERT INTO locais_seguros (nome, descricao, endereco, categoria, telefone, horario_funcionamento, latitude, longitude, ativo) VALUES
+(
+    'Delegacia Especializada no Atendimento à Mulher (DEAM) - Rio Grande',
+    'Delegacia especializada no atendimento à mulher para registro de ocorrências de violência doméstica, medidas protetivas e investigação.',
+    'Rua Marechal Andréa, 44 - Centro, Rio Grande - RS, 96201-250',
+    'delegacia',
+    '(53) 3236-2016',
+    'Segunda a sexta-feira: 08:30 às 12:00 e 13:30 às 18:00',
+    -32.035378,
+    -52.107580,
+    TRUE
+),
+(
+    'Juizado de Violência Doméstica e Familiar - Rio Grande',
+    'Órgão do poder judiciário especializado no julgamento de casos de violência doméstica e familiar contra a mulher.',
+    'Rua Apody dos Reis, 16 - Centro Cívico, Rio Grande - RS, 96214-264',
+    'centro_apoio',
+    '(53) 3036-8300',
+    'Segunda a sexta-feira: 12:00 às 19:00',
+    -32.032249,
+    -52.094784,
+    TRUE
+),
+(
+    'Centro de Referência Especializado de Assistência Social (CREAS) - Rio Grande',
+    'Serviço de proteção social especial para famílias e indivíduos em situação de risco pessoal e social, incluindo violência doméstica.',
+    'Avenida Major Carlos Pinto, 117 - Cidade Nova, Rio Grande - RS, 96211-021',
+    'centro_apoio',
+    '(53) 3231-1940',
+    'Segunda a sexta-feira: 09:00 às 17:00',
+    -32.033579,
+    -52.107069,
+    TRUE
+),
+(
+    'Centro de Referência de Atendimento à Mulher (CRAM) - Rio Grande',
+    'Serviço especializado no atendimento à mulher em situação de violência, oferecendo acolhimento, orientação e encaminhamentos.',
+    'Avenida Silva Paes, 191 - 5° andar - Centro, Rio Grande - RS, 96200-340',
+    'centro_apoio',
+    '(53) 3237-4242',
+    'Segunda a sexta-feira: 08:00 às 17:00',
+    -32.033760,
+    -52.092980,
+    TRUE
+),
+(
+    'Patrulha Maria da Penha - Rio Grande',
+    'Serviço policial especializado na fiscalização do cumprimento de medidas protetivas de urgência concedidas às mulheres em situação de violência.',
+    'Avenida Honório Bicalho, 20 - Getúlio Vargas, Rio Grande - RS, 96201-020',
+    'delegacia',
+    '(53) 3231-3533',
+    'Plantão 24 horas para emergências',
+    -32.039352,
+    -52.077641,
+    TRUE
+),
+(
+    'Serviço Acolher - Hospital Universitário Dr. Miguel Riet Corrêa Jr.',
+    'Serviço de acolhimento e atendimento integral à mulher em situação de violência no ambiente hospitalar, com equipe multidisciplinar.',
+    'Rua Visconde de Paranaguá, 102 - Centro, Rio Grande - RS, 96200-190',
+    'hospital',
+    '(53) 3233-8800',
+    'Atendimento 24 horas',
+    -32.034444,
+    -52.097222,
+    TRUE
+),
+(
+    'Farmácia Popular - Rio Grande',
+    'Farmácia com atendimento estendido.',
+    'Rua General Bacelar, 789 - Centro, Rio Grande - RS',
+    'farmacia',
+    '(53) 3232-4455',
+    'Segunda a sábado: 08:00 às 22:00',
+    -32.033333,
+    -52.096667,
+    TRUE
+);
+
+-- ==================== SÃO JOSÉ DO NORTE ====================
+INSERT INTO locais_seguros (nome, descricao, endereco, categoria, telefone, horario_funcionamento, latitude, longitude, ativo) VALUES
+(
+    'Secretaria Municipal da Assistência Social, da Cidadania e da Mulher - São José do Norte',
+    'Coordena políticas públicas voltadas à mulher, direito à assistência social, encaminhamento, apoio institucional.',
+    'Rua Marechal Deodoro, nº 276, Centro, São José do Norte - RS',
+    'centro_apoio',
+    '0800 090 1073 - Ramal 284',
+    'Segunda a sexta-feira: 08:00 às 12:00 e 13:30 às 17:30',
+    -32.015056,
+    -52.043306,
+    TRUE
+);
+
+-- ==================== SANTA VITÓRIA DO PALMAR ====================
+INSERT INTO locais_seguros (nome, descricao, endereco, categoria, telefone, horario_funcionamento, latitude, longitude, ativo) VALUES
+(
+    'Defensoria Pública Estadual de Santa Vitória do Palmar',
+    'Assistência jurídica gratuita para casos de violência contra a mulher, medidas protetivas, orientação sobre direitos, Lei Maria da Penha, etc.',
+    'Rua Conselheiro Dom Diogo de Souza, 1250 - Centro, Santa Vitória do Palmar - RS, 96230-000',
+    'centro_apoio',
+    '(53) 3263-6020',
+    'Segunda a sexta-feira: 12:00 às 19:00',
+    -33.522059,
+    -53.358273,
+    TRUE
+),
+(
+    'Hospital Municipal - Santa Vitória do Palmar',
+    'Atendimento médico de emergência.',
+    'Avenida Presidente Vargas, 567 - Centro, Santa Vitória do Palmar - RS',
+    'hospital',
+    '(53) 3263-1234',
+    '24 horas',
+    -33.518889,
+    -53.365000,
+    TRUE
+);
+
+-- ==================== CHUÍ ====================
+INSERT INTO locais_seguros (nome, descricao, endereco, categoria, telefone, horario_funcionamento, latitude, longitude, ativo) VALUES
+(
+    'Centro de Referência de Assistência Social (CRAS) - Chuí',
+    'Serviço geral de proteção social básica que pode oferecer primeiro acolhimento e encaminhamento para mulheres em situação de violência.',
+    'Avenida Uruguai, 123 - Centro, Chuí - RS',
+    'centro_apoio',
+    '(53) 3265-1122',
+    'Segunda a sexta-feira: 08:00 às 17:00',
+    -33.688889,
+    -53.456667,
+    TRUE
+),
+(
+    'Delegacia de Polícia - Chuí',
+    'Atendimento geral de polícia que pode registrar ocorrências de violência doméstica e aplicar medidas protetivas.',
+    'Rua Internacional, 456 - Centro, Chuí - RS',
+    'delegacia',
+    '(53) 3265-1234',
+    '24 horas',
+    -33.689444,
+    -53.457222,
+    TRUE
+);
+
+-- ==================== VERIFICAÇÃO FINAL ====================
+
+-- Contar total de locais por cidade
+SELECT 
+    CASE 
+        WHEN endereco LIKE '%Pelotas%' THEN 'Pelotas'
+        WHEN endereco LIKE '%Rio Grande%' THEN 'Rio Grande'
+        WHEN endereco LIKE '%São José do Norte%' THEN 'São José do Norte'
+        WHEN endereco LIKE '%Santa Vitória do Palmar%' THEN 'Santa Vitória do Palmar'
+        WHEN endereco LIKE '%Chuí%' THEN 'Chuí'
+        ELSE 'Outras'
+    END AS cidade,
+    COUNT(*) as total_locais,
+    STRING_AGG(DISTINCT categoria, ', ' ORDER BY categoria) as categorias
+FROM locais_seguros 
+WHERE ativo = TRUE
+GROUP BY cidade
+ORDER BY 
+    CASE cidade
+        WHEN 'Pelotas' THEN 1
+        WHEN 'Rio Grande' THEN 2
+        WHEN 'São José do Norte' THEN 3
+        WHEN 'Santa Vitória do Palmar' THEN 4
+        WHEN 'Chuí' THEN 5
+        ELSE 6
+    END;
+
+-- Listar todos os locais organizados por cidade e categoria
+SELECT 
+    CASE 
+        WHEN endereco LIKE '%Pelotas%' THEN 'Pelotas'
+        WHEN endereco LIKE '%Rio Grande%' THEN 'Rio Grande'
+        WHEN endereco LIKE '%São José do Norte%' THEN 'São José do Norte'
+        WHEN endereco LIKE '%Santa Vitória do Palmar%' THEN 'Santa Vitória do Palmar'
+        WHEN endereco LIKE '%Chuí%' THEN 'Chuí'
+        ELSE 'Outras'
+    END AS cidade,
+    nome,
+    categoria,
+    telefone,
+    horario_funcionamento
+FROM locais_seguros 
+WHERE ativo = TRUE
+ORDER BY 
+    CASE 
+        WHEN endereco LIKE '%Pelotas%' THEN 1
+        WHEN endereco LIKE '%Rio Grande%' THEN 2
+        WHEN endereco LIKE '%São José do Norte%' THEN 3
+        WHEN endereco LIKE '%Santa Vitória do Palmar%' THEN 4
+        WHEN endereco LIKE '%Chuí%' THEN 5
+        ELSE 6
+    END,
+    categoria,
+    nome;

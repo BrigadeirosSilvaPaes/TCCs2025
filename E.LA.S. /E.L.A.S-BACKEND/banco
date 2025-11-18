@@ -1,0 +1,144 @@
+-- Tabela de usuários
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    nome_social VARCHAR(255),
+    cpf CHAR(11) NOT NULL UNIQUE,
+    telefone VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(255) UNIQUE,
+    cuidador VARCHAR(255),
+    numero_medida VARCHAR(50) NOT NULL UNIQUE,
+    senha CHAR(60) NOT NULL,
+    ativo BOOLEAN DEFAULT TRUE,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de configurações
+CREATE TABLE configuracoes (
+    id SERIAL PRIMARY KEY,
+    usuario_id INTEGER NOT NULL UNIQUE,
+    notificacoes BOOLEAN DEFAULT TRUE,
+    modo_escuro BOOLEAN DEFAULT FALSE,
+    idioma VARCHAR(10) DEFAULT 'pt-BR',
+    compartilhar_localizacao BOOLEAN DEFAULT TRUE,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+-- Tabela de alertas
+CREATE TABLE alertas (
+    id BIGSERIAL PRIMARY KEY,
+    usuario_id INTEGER NOT NULL,
+    tipo_alerta VARCHAR(20) CHECK (tipo_alerta IN ('emergencia', 'sos', 'perigo')),
+    numero_medida VARCHAR(50) NOT NULL,
+    latitude DECIMAL(10, 8) NOT NULL,
+    longitude DECIMAL(11, 8) NOT NULL,
+    mensagem TEXT,
+    status VARCHAR(20) DEFAULT 'ativo' CHECK (status IN ('ativo', 'cancelado', 'resolvido')),
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    resolvido_em TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+-- Tabela de locais seguros ATUALIZADA
+CREATE TABLE locais_seguros (
+    id BIGSERIAL PRIMARY KEY,
+    nome VARCHAR(200) NOT NULL, -- Aumentado de 100 para 200
+    descricao TEXT,
+    endereco VARCHAR(255) NOT NULL,
+    categoria VARCHAR(30) CHECK (categoria IN ('delegacia', 'hospital', 'upa', 'farmacia', 'centro_apoio', 'comercio_seguro', 'outros')),
+    telefone VARCHAR(25), -- Aumentado de 20 para 25
+    horario_funcionamento VARCHAR(200), -- Aumentado de 100 para 200
+    latitude DECIMAL(10, 8) NOT NULL,
+    longitude DECIMAL(11, 8) NOT NULL,
+    ativo BOOLEAN DEFAULT TRUE,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de localizações do usuário
+CREATE TABLE localizacoes_usuario (
+    id BIGSERIAL PRIMARY KEY,
+    usuario_id INTEGER NOT NULL,
+    latitude DECIMAL(10, 8) NOT NULL,
+    longitude DECIMAL(11, 8) NOT NULL,
+    data_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+-- Tabela de acessos
+CREATE TABLE acessos (
+    id BIGSERIAL PRIMARY KEY,
+    usuario_id INTEGER NOT NULL,
+    data_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ip VARCHAR(45),
+    user_agent TEXT,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+-- Tabela de termos aceitos
+CREATE TABLE termos_aceitos (
+    id BIGSERIAL PRIMARY KEY,
+    usuario_id INTEGER NOT NULL,
+    versao_termo VARCHAR(20) NOT NULL,
+    data_aceite TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ip VARCHAR(45),
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+-- ==================== ÍNDICES ====================
+
+-- Índices para usuários
+CREATE INDEX idx_usuarios_ativo ON usuarios(ativo);
+CREATE INDEX idx_usuarios_cpf ON usuarios(cpf);
+CREATE INDEX idx_usuarios_email ON usuarios(email);
+
+-- Índices para alertas
+CREATE INDEX idx_alertas_usuario_status ON alertas(usuario_id, status);
+CREATE INDEX idx_alertas_data ON alertas(criado_em);
+CREATE INDEX idx_alertas_tipo ON alertas(tipo_alerta);
+
+-- Índices para locais seguros
+CREATE INDEX idx_locais_seguros_categoria ON locais_seguros(categoria, ativo);
+CREATE INDEX idx_locais_seguros_localizacao ON locais_seguros(latitude, longitude);
+CREATE INDEX idx_locais_seguros_nome ON locais_seguros(nome);
+
+-- Índices para localizações
+CREATE INDEX idx_localizacoes_usuario_data ON localizacoes_usuario(usuario_id, data_registro);
+CREATE INDEX idx_localizacoes_data ON localizacoes_usuario(data_registro);
+
+-- Índices para acessos
+CREATE INDEX idx_acessos_usuario_data ON acessos(usuario_id, data_login);
+
+-- Índices para termos
+CREATE INDEX idx_termos_usuario ON termos_aceitos(usuario_id);
+
+-- ==================== FUNÇÕES E TRIGGERS ====================
+
+-- Função para atualizar updated_at automaticamente
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.atualizado_em = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+-- Triggers para atualizar updated_at
+CREATE TRIGGER update_usuarios_updated_at 
+    BEFORE UPDATE ON usuarios 
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_configuracoes_updated_at 
+    BEFORE UPDATE ON configuracoes 
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+-- Função para validar CPF (opcional)
+CREATE OR REPLACE FUNCTION validar_cpf(cpf CHAR(11))
+RETURNS BOOLEAN AS $$
+BEGIN
+    -- Implementação básica de validação de CPF
+    RETURN LENGTH(cpf) = 11 AND cpf ~ '^[0-9]+$';
+END;
+$$ LANGUAGE plpgsql;
