@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "ELAS",
+    "slug": "elas-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.arrudaagabrielle.elasapp"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.arrudaagabrielle.elasapp",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "71ad7be0-ebc5-4cf8-9d8a-22caccf47ca9"
+      }
+    }
+  }
+}
