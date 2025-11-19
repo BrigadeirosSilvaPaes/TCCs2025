@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Famílias Silábicas</title>
+  <link rel="stylesheet" href="familia_silabica.css">
+</head>
+<body>
+  <div class="container">
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    
+    <h2>Famílias silábicas</h2>
+    <p>Complete as famílias silábicas com as sílabas que faltam.</p>
+
+    <!-- Área da atividade -->
+    <div class="atividade">
+      <!-- Cada linha de família silábica -->
+      <div class="familia" data-correta="BA,BE,BI,BO,BU">
+        <span>BA</span> – <span>BE</span> – <span>BI</span> – <span class="faltando"></span> – <span>BU</span>
+      </div>
+
+      <div class="familia" data-correta="CA,CE,CI,CO,CU">
+        <span>CA</span> – <span>CE</span> – <span class="faltando"></span> – <span>CO</span> – <span>CU</span>
+      </div>
+
+      <div class="familia" data-correta="DA,DE,DI,DO,DU">
+        <span>DA</span> – <span>DE</span> – <span>DI</span> – <span>DO</span> – <span class="faltando"></span>
+      </div>
+
+      <div class="familia" data-correta="FA,FE,FI,FO,FU">
+        <span class="faltando"></span> – <span>FE</span> – <span>FI</span> – <span>FO</span> – <span>FU</span>
+      </div>
+    </div>
+
+    <!-- Opções de sílabas para arrastar -->
+    <h3>Arraste a sílaba correta:</h3>
+    <div class="sugestoes">
+      <span draggable="true">BO</span>
+      <span draggable="true">CI</span>
+      <span draggable="true">DU</span>
+      <span draggable="true">BA</span>
+      <span draggable="true">FA</span>
+    </div>
+
+    <!-- Mensagem de feedback -->
+    <p id="mensagem"></p>
+    
+    <!-- Botão de reiniciar -->
+    <button class="reiniciar" onclick="reiniciarAtividade()">Reiniciar Atividade</button>
+  </div>
+
+  <script src="familia_silabica.js"></script>
+</body>
+</html>

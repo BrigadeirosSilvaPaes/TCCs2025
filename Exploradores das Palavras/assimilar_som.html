@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relacionar Som ao Animal</title>
+    <link rel="stylesheet" href="assimilar_som.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Relacione o Som ao Animal</h1>
+        <div class="instructions">
+            <p>Ouça o som e clique na imagem do animal correspondente utilizando o mouse.</p>
+        </div>
+        
+        <div class="audio-container">
+            <button id="play-sound" class="play-button">▶️ Reproduzir Som</button>
+            <audio id="animal-sound" preload="auto"></audio>
+        </div>
+        
+        <div class="score">
+            <p>Acertos: <span id="score-value">0</span></p>
+        </div>
+        
+        <div class="animals-container">
+            <!-- As imagens foram inseridas dinamicamente pelo JavaScript -->
+        </div>
+        
+        <div class="feedback">
+            <p id="feedback-message"></p>
+        </div>
+        
+        <button id="next-question" class="next-button">Próxima Pergunta</button>
+    </div>
+    
+    <script src="assimilar_som.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>História: O Leão Leitor</title>
+  <link rel="stylesheet" href="historia.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-column">
+      <h1>História: O Leão Leitor</h1>
+      
+      <div class="story-box">
+        <p>Leonardo, um leão, adora ler.<br>
+        Na escola dos animais ele é um bom aluno.<br>
+        Um dia Leonardo leu tanto que esqueceu de comer.<br>
+        O coitado do Leão foi com fome para a escola.</p>
+      </div>
+
+      <div class="illustration">
+        <img src="imgs/leao2.png" alt="Leão lendo">
+      </div>
+    </div>
+
+    <div class="right-column">
+      <div class="questions-grid">
+        <div class="question-card">
+          <p>1 – O animal que aparece no texto é:</p>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q1"> Borboleta
+            </label>
+            <label class="option">
+              <input type="radio" name="q1"> Leão
+            </label>
+            <label class="option">
+              <input type="radio" name="q1"> Porco
+            </label>
+            <label class="option">
+              <input type="radio" name="q1"> Pássaro
+            </label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p>2 – O nome do leão é:</p>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q2"> Leonardo
+            </label>
+            <label class="option">
+              <input type="radio" name="q2"> Lucas
+            </label>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p>3 – De acordo com o texto, Leonardo é:</p>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q3"> Um leão bravo
+            </label>
+            <label class="option">
+              <input type="radio" name="q3"> Um bom amigo
+            </label>
+            <label class="option">
+              <input type="radio" name="q3"> Um bom aluno
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button class="check-button" onclick="verificar()">Conferir Respostas</button>
+        <div class="result" id="resultado"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="historia.js"></script>
+</body>
+</html>

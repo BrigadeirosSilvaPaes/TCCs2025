@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ligar imagem à palavra</title>
+  <link rel="stylesheet" href="ligar_imagem.css" />
+</head>
+<body>
+  <div class="sheet" role="main">
+    <h1>Ligue a imagem à palavra</h1>
+    <p class="lead">Clique primeiro no desenho e depois na palavra correspondente. Faça todas as ligações e depois pressione "Verificar".</p>
+
+    <div class="connector-wrap" id="wrap">
+      <div class="cols">
+        <div class="left" id="imagesCol" aria-label="imagens">
+          <div class="card" data-id="house" role="button" tabindex="0"><div class="emoji">🏠</div></div>
+          <div class="card" data-id="sun" role="button" tabindex="0"><div class="emoji">☀️</div></div>
+          <div class="card" data-id="balloon" role="button" tabindex="0"><div class="emoji">🎈</div></div>
+          <div class="card" data-id="fish" role="button" tabindex="0"><div class="emoji">🐟</div></div>
+        </div>
+
+        <div style="flex:0 0 24px"></div>
+
+        <div class="right" id="wordsCol" aria-label="palavras">
+          <div class="word" data-id="house">Casa</div>
+          <div class="word" data-id="sun">Sol</div>
+          <div class="word" data-id="balloon">Balão</div>
+          <div class="word" data-id="fish">Peixe</div>
+        </div>
+      </div>
+
+      <svg class="connectors" id="svg"></svg>
+    </div>
+
+    <div class="controls">
+      <button id="check">Verificar</button>
+      <button class="ghost" id="reset">Limpar</button>
+      <div class="status" id="status"></div>
+    </div>
+  </div>
+
+  <script src="ligar_imagem.js"></script>
+</body>
+</html>
