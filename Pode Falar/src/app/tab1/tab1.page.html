@@ -1,0 +1,86 @@
+<ion-content [fullscreen]="true" class="info-page-background">
+  <div class="background-image-layer"></div>
+
+  <ion-title class="titulo">Pode Falar</ion-title>
+
+  <div class="info-container">
+
+    <!-- Accordion: Sobre o App -->
+    <div class="accordion-item">
+      <div class="accordion-header" (click)="toggleSegment('sobre-app')">
+        Sobre o App Pode Falar
+      </div>
+      <div *ngIf="openSegments['sobre-app']" class="accordion-content">
+        <p>
+          O Pode Falar é um aplicativo criado para proteger crianças e adolescentes contra a violência sexual. Ele oferece um espaço seguro, sigiloso e acolhedor, onde você pode buscar informações e receber ajuda de profissionais capacitados.
+        </p>
+        <p>
+         Aqui, mostramos que toda criança e adolescente tem o direito de ser ouvido(a) e viver com segurança, respeito e dignidade. Porque falar é o primeiro passo para se proteger.
+        </p>
+      </div>
+    </div>
+
+    <!-- Accordion: Sobre o CRAI -->
+    <div class="accordion-item">
+      <div class="accordion-header" (click)="toggleSegment('sobre-crai')">
+        Sobre o CRAI
+      </div>
+      <div *ngIf="openSegments['sobre-crai']" class="accordion-content">
+        <p>
+          O CRAI (Centro de Referência em Atendimento Infantojuvenil) é uma instituição especializada no acolhimento e atendimento de crianças e adolescentes vítimas de violência sexual. Com uma equipe formada por psicólogos, enfermeiros e profissionais da segurança e proteção, o CRAI oferece suporte humanizado, escuta especializada e encaminhamentos adequados, sempre priorizando o bem-estar e os direitos da vítima.
+      </div>
+    </div>
+
+    <!-- Accordion: Termos -->
+    <div class="accordion-item">
+      <div class="accordion-header" (click)="toggleSegment('termos')">
+        Termos de Uso
+      </div>
+      <div *ngIf="openSegments['termos']" class="accordion-content">
+        <p>
+          Ao utilizar o aplicativo Pode Falar, o(a) usuário(a) concorda com os seguintes termos:
+        </p>
+        <ul>
+          <li>O app é destinado ao registro de denúncias reais de abuso contra crianças e adolescentes, além de fornecer informações de apoio.</li>
+          <li>As informações fornecidas nas denúncias devem ser verdadeiras. Denúncias falsas podem gerar responsabilização legal.</li>
+          <li>O app pode coletar dados essenciais para o encaminhamento da denúncia às autoridades competentes, com total sigilo e proteção legal.</li>
+          <li>Ao enviar uma denúncia, o(a) usuário(a) autoriza o repasse das informações aos órgãos competentes.</li>
+          <li>O uso indevido da plataforma é expressamente proibido.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Accordion: Segurança -->
+    <div class="accordion-item">
+      <div class="accordion-header" (click)="toggleSegment('seguranca')">
+        Segurança e Privacidade
+      </div>
+      <div *ngIf="openSegments['seguranca']" class="accordion-content">
+        <p>
+          A segurança de quem denuncia é uma prioridade no Pode Falar. O aplicativo foi projetado para garantir sigilo absoluto e proteção dos dados:
+        </p>
+        <ul>
+          <li>O Pode Falar não compartilha dados com terceiros e não utiliza informações dos usuários para fins comerciais.</li>
+          <li>Todos os dados fornecidos são protegidos e usados apenas para garantir a segurança e o funcionamento adequado da plataforma em casos de denúncia.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Accordion:O abuso infantojuvenil-->
+    <div class="accordion-item">
+      <div class="accordion-header" (click)="toggleSegment('Infantojuvenil')">
+        Sobre o abuso Infantojuvenil
+      </div>
+      <div *ngIf="openSegments['Infantojuvenil']" class="accordion-content">
+        <p>
+        Atenção!
+        </p>
+        <ul>
+          <li> Violência sexual é quando alguém faz, fala ou mostra algo de cunho sexual, tenta tocar partes íntimas, pede fotos, faz comentários ou pede segredo sobre isso.</li>
+          <li>Se algo assim acontecer, fale com a gente. Você não tem culpa e merece ser protegido(a)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

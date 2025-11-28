@@ -1,0 +1,182 @@
+<ion-content class="denuncia-background" [fullscreen]="true">
+  <div class="background-image-layer"></div>
+  <ion-content class="denuncia-page ion-padding">
+    <div class="header-section">
+      <h2 class="titulo-principal">Pode Falar</h2>
+    </div>
+
+    <div class="denuncia-wrapper">
+
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">Qual seu nome completo?</ion-label>
+        </ion-list-header>
+        <ion-item class="denuncia-input-item">
+          <ion-input id="input-nome-completo" placeholder="Seu nome completo" type="text" label-placement="stacked"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">Qual o nome da sua mãe?</ion-label>
+        </ion-list-header>
+        <ion-item class="denuncia-input-item">
+          <ion-input id="input-nome-mae" placeholder="Nome completo da sua mãe" type="text" label-placement="stacked"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">Qual a sua idade?</ion-label>
+        </ion-list-header>
+        <ion-item class="denuncia-input-item">
+          <ion-input id="input-idade" placeholder="Sua idade (em anos)" type="number" label-placement="stacked"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">Qual o seu sexo?</ion-label>
+        </ion-list-header>
+        <ion-radio-group id="radio-sexo">
+          <ion-item><ion-radio slot="start" value="feminino"></ion-radio><ion-label>Feminino</ion-label></ion-item>
+          <ion-item><ion-radio slot="start" value="masculino"></ion-radio><ion-label>Masculino</ion-label></ion-item>
+          <ion-item><ion-radio slot="start" value="outro"></ion-radio><ion-label>Prefiro não dizer / Outro</ion-label></ion-item>
+        </ion-radio-group>
+      </div>
+
+      
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">O que aconteceu com você?</ion-label>
+        </ion-list-header>
+        <ion-item class="denuncia-input-item">
+          <ion-textarea
+            id="textarea-situacao"
+            label="Descreva o ocorrido"
+            label-placement="floating"
+            placeholder="Conte aqui o que aconteceu com você..."
+            rows="4">
+          </ion-textarea>
+        </ion-item>
+      </div>
+
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">Quem fez isso?</ion-label>
+        </ion-list-header>
+        <ion-radio-group id="radio-quem-envolvido" (ionChange)="handleQuemEnvolvidoChange($event)">
+          <ion-item><ion-radio slot="start" value="adulto-familia"></ion-radio><ion-label>Um adulto da família</ion-label></ion-item>
+          <ion-item><ion-radio slot="start" value="adulto-fora-familia"></ion-radio><ion-label>Um adulto de fora da família</ion-label></ion-item>
+          <ion-item><ion-radio slot="start" value="adolescente-familia"></ion-radio><ion-label>Um adolescente dentro da família</ion-label></ion-item>
+          <ion-item><ion-radio slot="start" value="adolescente-fora-familia"></ion-radio><ion-label>Um adolescente fora da família</ion-label></ion-item>
+          <ion-item><ion-radio slot="start" value="especificar"></ion-radio><ion-label>Outro / Especificar</ion-label></ion-item>
+        </ion-radio-group>
+
+        <div [hidden]="!especificarQuemEnvolvido">
+          <ion-item class="denuncia-input-item">
+            <ion-textarea
+              id="textarea-quem-envolvido-extra"
+              label="Especifique quem fez:"
+              label-placement="floating"
+              placeholder="Ex: Colega de escola, professor, vizinho, etc."
+              rows="2">
+            </ion-textarea>
+          </ion-item>
+        </div>
+      </div>
+
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">Onde aconteceu?</ion-label>
+        </ion-list-header>
+        <ion-radio-group id="radio-local-ocorrencia" (ionChange)="handleLocalOcorrenciaChange($event)">
+          <ion-item><ion-radio slot="start" value="casa"></ion-radio><ion-label>Na minha casa</ion-label></ion-item>
+          <ion-item><ion-radio slot="start" value="escola"></ion-radio><ion-label>Na escola</ion-label></ion-item>
+          <ion-item><ion-radio slot="start" value="rua"></ion-radio><ion-label>Na rua</ion-label></ion-item>
+          <ion-item><ion-radio slot="start" value="especificar-local"></ion-radio><ion-label>Outro lugar / Especificar local</ion-label></ion-item>
+        </ion-radio-group>
+
+        <div [hidden]="!especificarLocalOcorrencia">
+          <ion-textarea
+            id="localizacao-detalhada-denuncia"
+            label="Especifique o local:"
+            label-placement="floating"
+            placeholder="Digite o local exato aqui..."
+            rows="2">
+          </ion-textarea>
+        </div>
+      </div>
+
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">Onde você mora?</ion-label>
+        </ion-list-header>
+        <ion-item class="denuncia-input-item">
+          <ion-textarea 
+            id="onde-mora-denuncia" 
+            placeholder="Seu endereço completo (Rua, Cidade, Estado)" 
+            rows="2"
+            label-placement="stacked"
+          ></ion-textarea>
+        </ion-item>
+      </div>
+
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">Deseja adicionar a sua geolocalização? (Opcional)</ion-label>
+        </ion-list-header>
+        
+        <ion-item class="denuncia-input-item">
+          <ion-textarea
+            id="geolocalizacao-atual"
+            label="Coordenadas atuais"
+            label-placement="floating"
+            placeholder="Clique no botão abaixo para tentar obter"
+            rows="2"
+            readonly>
+          </ion-textarea>
+        </ion-item>
+        <ion-button expand="block" class="botao-localizacao" color="tertiary" (click)="detectarLocalizacao()">
+          <ion-icon slot="start" name="locate-outline"></ion-icon>
+          Detectar Localização Atual
+        </ion-button>
+      </div>
+
+      <div class="denuncia-bloco">
+        <ion-list-header>
+          <ion-label class="bloco-titulo">Deseja adicionar alguma informação a mais?</ion-label>
+        </ion-list-header>
+
+        <ion-radio-group id="radio-info-adicional" (ionChange)="handleInfoAdicionalChange($event)">
+          <ion-item>
+            <ion-radio slot="start" value="sim"></ion-radio>
+            <ion-label>Sim</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-radio slot="start" value="nao"></ion-radio>
+            <ion-label>Não</ion-label>
+          </ion-item>
+        </ion-radio-group>
+
+        <div [hidden]="!adicionarInfoExtra">
+          <ion-item class="denuncia-input-item">
+            <ion-textarea
+              id="textarea-info-extra"
+              label="Informações Adicionais"
+              label-placement="floating"
+              placeholder="Escreva livremente aqui..."
+              rows="4">
+            </ion-textarea>
+          </ion-item>
+        </div>
+      </div>
+
+      <ion-button expand="block" class="botao-enviar" (click)="enviarDenuncia()">
+        <ion-icon slot="start" name="send-outline"></ion-icon>
+        Enviar Denúncia
+      </ion-button>
+
+    </div>
+  </ion-content>
+</ion-content>

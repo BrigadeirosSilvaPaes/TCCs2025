@@ -1,0 +1,121 @@
+:host {
+  --cor-fundo-pagina: #ffffff;
+  --cor-gradiente-inicio: #d9a9f1;
+  --cor-gradiente-fim: #f5cda2;
+  --cor-texto-botao: #ffffff;
+  --cor-titulo: #c89ff4;
+}
+
+.denuncia-background {
+  --background: var(--cor-fundo-pagina);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+
+  animation: slideInFromRight 0.4s ease-out forwards;
+}
+
+.background-image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('Fundo.png');
+  background-size: 500px;
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding: 30px 20px;
+}
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+.titulo-pode-falar {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 2em;
+  color: var(--cor-titulo);
+  font-weight: bold;
+  margin: 0;
+  z-index: 2;
+}
+
+.botao-camuflagem {
+  --background: transparent;
+  --box-shadow: none;
+  width: 60px;      
+  height: 60px;       
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 3;
+}
+
+.botao-camuflagem ion-icon {
+  font-size: 36px;     
+  color: #ecb982;         
+}
+
+
+.icon-container {
+  position: absolute;
+  top: -10px;
+  right: 1px; 
+  z-index: 2;
+}
+
+
+
+.buttons-centered-container {
+  position: relative; 
+  margin: 40px auto; 
+  padding: 0 20px;   
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 330px;
+}
+
+
+
+.gradient-button {
+  background: linear-gradient(90deg, var(--cor-gradiente-inicio), var(--cor-gradiente-fim));
+  color: var(--cor-texto-botao);
+  border-radius: 25px;
+  height: 60px;
+  font-size: 1.1em;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gradient-button:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

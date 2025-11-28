@@ -1,0 +1,138 @@
+
+:host {
+  --gradiente-laranja-roxo: linear-gradient(40deg, #d89bf7, #f5cda2);
+  --cor-texto: #3a3a3a;
+  --cor-branco: #ffffff;
+  --cor-sombra: rgba(0, 0, 0, 0.12);
+}
+
+.denuncia-background {
+  --background: var(--cor-fundo-pagina);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+
+  animation: slideInFromRight 0.4s ease-out forwards;
+}
+
+.background-image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('Fundo.png');
+  background-size: 500px;
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+ion-content.denuncia-page {
+  --background: var(--cor-fundo);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100%;
+}
+
+
+.header-section {
+  text-align: center;
+  margin-top: 8px;
+}
+.titulo-principal {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #d193f0;
+}
+
+
+.denuncia-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.denuncia-bloco {
+  background: var(--gradiente-laranja-roxo);
+  padding: 18px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px var(--cor-sombra);
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.denuncia-bloco:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.bloco-titulo {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+
+ion-item {
+  --background: transparent;
+  --color: #fff;
+  font-size: 0.95rem;
+  --inner-border-width: 0;
+}
+
+ion-radio {
+  --color-checked: #fff;
+}
+
+.botao-localizacao,
+.botao-enviar {
+  --background: #bc7ff5; 
+  --background-hover: #c87bee; 
+  --color: #ffffff;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(123, 47, 247, 0.4);
+  text-transform: none;
+  margin-top: 14px;
+}
+
+.botao-localizacao:hover,
+.botao-enviar:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+.botao-localizacao ion-icon,
+.botao-enviar ion-icon {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+
+
+.denuncia-input-item {
+  background: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+@media (max-width: 480px) {
+  .denuncia-wrapper {
+    padding: 8px;
+  }
+  .titulo-principal {
+    font-size: 1.4rem;
+  }
+  .bloco-titulo {
+    font-size: 1rem;
+  }
+  ion-textarea {
+    font-size: 0.9rem;
+  }
+}

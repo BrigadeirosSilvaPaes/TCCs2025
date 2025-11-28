@@ -1,0 +1,83 @@
+<ion-content [fullscreen]="true" class="notas-page">
+  <ion-header class="header-notas">
+    <ion-toolbar>
+      <ion-title>Minhas Anotações</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="openSettingsModal(true)">
+          <ion-icon name="cog"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-searchbar
+    placeholder="Pesquisar anotações"
+    debounce="500"
+    (ionInput)="filterNotes()"
+    [(ngModel)]="searchTerm">
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let note of filteredNotes">
+      <ion-label>{{ note.text }}</ion-label>
+      <ion-button slot="end" fill="clear" color="medium" (click)="deleteNote(note.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openAddModal(true)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Nova Anotação</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="openAddModal(false)">Fechar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-input
+          label="Escreva sua anotação"
+          labelPlacement="floating"
+          fill="outline"
+          [(ngModel)]="newNoteText">
+        </ion-input>
+        <ion-button expand="block" class="ion-margin-top" (click)="addNote()">Adicionar</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+ 
+  <ion-modal [isOpen]="isSettingsModalOpen" #settingsModal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Configurações</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="openSettingsModal(false)">Fechar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <h3 class="ion-text-center">Deseja mandar uma mensagem à equipe?</h3>
+        <ion-textarea
+          label="Sua mensagem"
+          labelPlacement="floating"
+          fill="outline"
+          [(ngModel)]="feedbackText">
+        </ion-textarea>
+        <ion-button expand="block" class="ion-margin-top" (click)="sendFeedback()">
+          Enviar
+        </ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

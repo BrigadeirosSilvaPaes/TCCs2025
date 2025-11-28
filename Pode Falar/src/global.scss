@@ -1,0 +1,66 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+//@import '@ionic/angular/css/palettes/dark.system.css';
+/* src/global.scss */
+
+.ion-page-enter {
+  opacity: 0;
+}
+
+.ion-page-enter.ion-page-enter-active {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.ion-page-leave {
+  opacity: 1;
+}
+
+.ion-page-leave.ion-page-leave-active {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+
+body, ion-app {
+  --ion-background-color: #d6b1f0 !important; /* Seu tom de roxo */
+  --ion-background-color-rgb: 128, 0, 128 !important; /* RGB do seu roxo */
+  
+  /* Esta linha é um fallback, para garantir a cor mesmo se as variáveis Ionic falharem */
+  background-color: #d6b1f0 !important;
+
+  /* COMANDO ADICIONADO: Define a cor do texto para preto */
+  color: #000000 !important;
+}
+
+html, body, ion-app, ion-content {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
